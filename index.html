@@ -27,14 +27,14 @@
             position: relative;
         }
 
-        .sortContainer div {
+        .sortContainer div,
+        .item {
             display: block;
             margin: 0 5px 5px 5px;
             padding: 5px;
             font-size: 1.2em;
             width: 120px;
-            background: #f5f5f5;
-            border: solid 1px #999;
+            min-height: 27px;
             box-sizing: border-box;
             position: relative;
         }
@@ -341,7 +341,7 @@
                 // 拖拽前的父级节点
                 dragBeforeParentNode = ui.item[0].parentNode
                 // 让placeholder和源高度一致
-                ui.helper.height(ui.item[0].clientHeight)
+                ui.helper.addClass('item').width(110)
                 // xxxx  这里可以记录一些拖拽前的元素属性
             },
             // 处理两列滚动条问题
