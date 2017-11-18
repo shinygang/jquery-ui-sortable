@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI 排序（Sortable） - 实例</title>
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <style type="text/css">
+        .drag-task {
+            display: block;
+            overflow-y: hidden;
+            width: 800px;
+            white-space: nowrap;
+        }
+
+        .drag-task section {
+            display: inline-block;
+            height: 100%;
+        }
+
+        .sortContainer {
+            margin: 0;
+            margin-right: 10px;
+            overflow-y: auto;
+            max-height: 350px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .sortContainer div {
+            display: block;
+            margin: 0 5px 5px 5px;
+            padding: 5px;
+            font-size: 1.2em;
+            width: 120px;
+            background: #f5f5f5;
+            border: solid 1px #999;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .portlet-placeholder {
+            border: dotted lightblue 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="drag-task">
+        <section>
+            <div id="ul10" class="sortContainer">
+                <div class="ui-state-default">Item 1</div>
+                <div class="ui-state-default">Item 2</div>
+                <div class="ui-state-default">Item 3</div>
+                <div class="ui-state-default">Item 4</div>
+                <div class="ui-state-default">Item 5</div>
+                <div class="ui-state-default">Item 6</div>
+                <div class="ui-state-default">Item 7</div>
+                <div class="ui-state-default">Item 8</div>
+                <div class="ui-state-default">Item 9</div>
+                <div class="ui-state-default">Item 10</div>
+                <div class="ui-state-default">Item 11</div>
+                <div class="ui-state-default">Item 12</div>
+                <div class="ui-state-default">Item 13</div>
+                <div class="ui-state-default">Item 14</div>
+                <div class="ui-state-default">Item 15</div>
+                <div class="ui-state-default">Item 16</div>
+                <div class="ui-state-default">Item 17</div>
+                <div class="ui-state-default">Item 18</div>
+                <div class="ui-state-default">Item 19</div>
+                <div class="ui-state-default">Item 20</div>
+            </div>
+        </section>
+        <section>
+            <div id="ul12" class="sortContainer">
+                <div class="ui-state-default">Item 1</div>
+                <div class="ui-state-default">Item 2</div>
+                <div class="ui-state-default">Item 3</div>
+                <div class="ui-state-default">Item 4</div>
+                <div class="ui-state-default">Item 5</div>
+                <div class="ui-state-default">Item 6</div>
+                <div class="ui-state-default">Item 7</div>
+                <div class="ui-state-default">Item 8</div>
+                <div class="ui-state-default">Item 9</div>
+                <div class="ui-state-default">Item 10</div>
+                <div class="ui-state-default">Item 11</div>
+                <div class="ui-state-default">Item 12</div>
+                <div class="ui-state-default">Item 13</div>
+                <div class="ui-state-default">Item 14</div>
+                <div class="ui-state-default">Item 15</div>
+                <div class="ui-state-default">Item 16</div>
+                <div class="ui-state-default">Item 17</div>
+                <div class="ui-state-default">Item 18</div>
+                <div class="ui-state-default">Item 19</div>
+                <div class="ui-state-default">Item 20</div>
+            </div>
+        </section>
+        <section>
+            <div id="ul11" class="sortContainer">
+                <div class="ui-state-default">Item 1</div>
+                <div class="ui-state-default">Item 2</div>
+                <div class="ui-state-default">Item 3</div>
+                <div class="ui-state-default">Item 4</div>
+                <div class="ui-state-default">Item 5</div>
+                <div class="ui-state-default">Item 6</div>
+                <div class="ui-state-default">Item 7</div>
+                <div class="ui-state-default">Item 8</div>
+                <div class="ui-state-default">Item 9</div>
+                <div class="ui-state-default">Item 10</div>
+                <div class="ui-state-default">Item 11</div>
+                <div class="ui-state-default">Item 12</div>
+                <div class="ui-state-default">Item 13</div>
+                <div class="ui-state-default">Item 14</div>
+                <div class="ui-state-default">Item 15</div>
+                <div class="ui-state-default">Item 16</div>
+                <div class="ui-state-default">Item 17</div>
+                <div class="ui-state-default">Item 18</div>
+                <div class="ui-state-default">Item 19</div>
+                <div class="ui-state-default">Item 20</div>
+            </div>
+        </section>
+        <section>
+            <div id="ul1" class="sortContainer">
+                <div class="ui-state-default">Item 1</div>
+                <div class="ui-state-default">Item 2</div>
+                <div class="ui-state-default">Item 3</div>
+                <div class="ui-state-default">Item 4</div>
+                <div class="ui-state-default">Item 5</div>
+                <div class="ui-state-default">Item 6</div>
+                <div class="ui-state-default">Item 7</div>
+                <div class="ui-state-default">Item 8</div>
+                <div class="ui-state-default">Item 9</div>
+                <div class="ui-state-default">Item 10</div>
+                <div class="ui-state-default">Item 11</div>
+                <div class="ui-state-default">Item 12</div>
+                <div class="ui-state-default">Item 13</div>
+                <div class="ui-state-default">Item 14</div>
+                <div class="ui-state-default">Item 15</div>
+                <div class="ui-state-default">Item 16</div>
+                <div class="ui-state-default">Item 17</div>
+                <div class="ui-state-default">Item 18</div>
+                <div class="ui-state-default">Item 19</div>
+                <div class="ui-state-default">Item 20</div>
+            </div>
+        </section>
+        <section>
+            <div id="ul2" class="sortContainer">
+                <div class="ui-state-default">Item 1</div>
+                <div class="ui-state-default">Item 2</div>
+                <div class="ui-state-default">Item 3</div>
+                <div class="ui-state-default">Item 4</div>
+                <div class="ui-state-default">Item 5</div>
+                <div class="ui-state-default">Item 6</div>
+                <div class="ui-state-default">Item 7</div>
+                <div class="ui-state-default">Item 8</div>
+                <div class="ui-state-default">Item 9</div>
+                <div class="ui-state-default">Item 10</div>
+                <div class="ui-state-default">Item 11</div>
+                <div class="ui-state-default">Item 12</div>
+                <div class="ui-state-default">Item 13</div>
+                <div class="ui-state-default">Item 14</div>
+                <div class="ui-state-default">Item 15</div>
+                <div class="ui-state-default">Item 16</div>
+                <div class="ui-state-default">Item 17</div>
+                <div class="ui-state-default">Item 18</div>
+                <div class="ui-state-default">Item 19</div>
+                <div class="ui-state-default">Item 20</div>
+            </div>
+        </section>
+        <section>
+            <div id="ul3" class="sortContainer">
+                <div class="ui-state-default">Item 1</div>
+                <div class="ui-state-default">Item 2</div>
+                <div class="ui-state-default">Item 3</div>
+                <div class="ui-state-default">Item 4</div>
+                <div class="ui-state-default">Item 5</div>
+                <div class="ui-state-default">Item 6</div>
+                <div class="ui-state-default">Item 7</div>
+                <div class="ui-state-default">Item 8</div>
+                <div class="ui-state-default">Item 9</div>
+                <div class="ui-state-default">Item 10</div>
+                <div class="ui-state-default">Item 11</div>
+                <div class="ui-state-default">Item 12</div>
+                <div class="ui-state-default">Item 13</div>
+                <div class="ui-state-default">Item 14</div>
+                <div class="ui-state-default">Item 15</div>
+                <div class="ui-state-default">Item 16</div>
+                <div class="ui-state-default">Item 17</div>
+                <div class="ui-state-default">Item 18</div>
+                <div class="ui-state-default">Item 19</div>
+                <div class="ui-state-default">Item 20</div>
+            </div>
+        </section>
+        <section>
+            <div id="ul4" class="sortContainer">
+                <div class="ui-state-default">Item 1</div>
+                <div class="ui-state-default">Item 2</div>
+                <div class="ui-state-default">Item 3</div>
+                <div class="ui-state-default">Item 4</div>
+                <div class="ui-state-default">Item 5</div>
+                <div class="ui-state-default">Item 6</div>
+                <div class="ui-state-default">Item 7</div>
+                <div class="ui-state-default">Item 8</div>
+                <div class="ui-state-default">Item 9</div>
+                <div class="ui-state-default">Item 10</div>
+                <div class="ui-state-default">Item 11</div>
+                <div class="ui-state-default">Item 12</div>
+                <div class="ui-state-default">Item 13</div>
+                <div class="ui-state-default">Item 14</div>
+                <div class="ui-state-default">Item 15</div>
+                <div class="ui-state-default">Item 16</div>
+                <div class="ui-state-default">Item 17</div>
+                <div class="ui-state-default">Item 18</div>
+                <div class="ui-state-default">Item 19</div>
+                <div class="ui-state-default">Item 20</div>
+            </div>
+        </section>
+        <section>
+            <div id="ul5" class="sortContainer">
+                <div class="ui-state-default">Item 1</div>
+                <div class="ui-state-default">Item 2</div>
+                <div class="ui-state-default">Item 3</div>
+                <div class="ui-state-default">Item 4</div>
+                <div class="ui-state-default">Item 5</div>
+                <div class="ui-state-default">Item 6</div>
+                <div class="ui-state-default">Item 7</div>
+                <div class="ui-state-default">Item 8</div>
+                <div class="ui-state-default">Item 9</div>
+                <div class="ui-state-default">Item 10</div>
+                <div class="ui-state-default">Item 11</div>
+                <div class="ui-state-default">Item 12</div>
+                <div class="ui-state-default">Item 13</div>
+                <div class="ui-state-default">Item 14</div>
+                <div class="ui-state-default">Item 15</div>
+                <div class="ui-state-default">Item 16</div>
+                <div class="ui-state-default">Item 17</div>
+                <div class="ui-state-default">Item 18</div>
+                <div class="ui-state-default">Item 19</div>
+                <div class="ui-state-default">Item 20</div>
+            </div>
+        </section>
+        <section>
+            <div id="ul6" class="sortContainer">
+                <div class="ui-state-default">Item 1</div>
+                <div class="ui-state-default">Item 2</div>
+                <div class="ui-state-default">Item 3</div>
+                <div class="ui-state-default">Item 4</div>
+                <div class="ui-state-default">Item 5</div>
+                <div class="ui-state-default">Item 6</div>
+                <div class="ui-state-default">Item 7</div>
+                <div class="ui-state-default">Item 8</div>
+                <div class="ui-state-default">Item 9</div>
+                <div class="ui-state-default">Item 10</div>
+                <div class="ui-state-default">Item 11</div>
+                <div class="ui-state-default">Item 12</div>
+                <div class="ui-state-default">Item 13</div>
+                <div class="ui-state-default">Item 14</div>
+                <div class="ui-state-default">Item 15</div>
+                <div class="ui-state-default">Item 16</div>
+                <div class="ui-state-default">Item 17</div>
+                <div class="ui-state-default">Item 18</div>
+                <div class="ui-state-default">Item 19</div>
+                <div class="ui-state-default">Item 20</div>
+            </div>
+        </section>
+        <section>
+            <div id="ul7" class="sortContainer">
+                <div class="ui-state-default">Item 1</div>
+                <div class="ui-state-default">Item 2</div>
+                <div class="ui-state-default">Item 3</div>
+                <div class="ui-state-default">Item 4</div>
+                <div class="ui-state-default">Item 5</div>
+                <div class="ui-state-default">Item 6</div>
+                <div class="ui-state-default">Item 7</div>
+                <div class="ui-state-default">Item 8</div>
+                <div class="ui-state-default">Item 9</div>
+                <div class="ui-state-default">Item 10</div>
+                <div class="ui-state-default">Item 11</div>
+                <div class="ui-state-default">Item 12</div>
+                <div class="ui-state-default">Item 13</div>
+                <div class="ui-state-default">Item 14</div>
+                <div class="ui-state-default">Item 15</div>
+                <div class="ui-state-default">Item 16</div>
+                <div class="ui-state-default">Item 17</div>
+                <div class="ui-state-default">Item 18</div>
+                <div class="ui-state-default">Item 19</div>
+                <div class="ui-state-default">Item 20</div>
+            </div>
+        </section>
+    </div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script>
+    $(function () {
+        // 拖拽时开始滚动的间距
+        var scrollingSensitivity = 20
+        // 拖拽时滚动速度
+        let scrollingSpeed = 20
+        // 拖拽前的父级节点
+        let dragBeforeParentNode = null
+        // 初始化拖拽函数
+        $('.sortContainer').sortable({
+            // 自适应placeholder的大小
+            forceHelperSize: true,
+            // 拖拽时的鼠标形状
+            cursor: '-webkit-grabbing',
+            // 拖拽的父级节点(该节点一定要注意，配置错误会导致当前屏幕外的元素没法自动滚动拖拽，两列之间拖拽的滚动也会出问题)
+            appendTo: '.drag-task',
+            // 拖拽时的倾斜度
+            rotate: '5deg',
+            // 延迟时间(毫秒)，避免和click同时操作时出现的冲突
+            delay: 150,
+            // 以clone方式拖拽
+            helper: 'clone',
+            // 拖拽到边框出现滚动的间距，
+            scrollSensitivity: scrollingSensitivity,
+            // 应用于拖拽空白区域的样式
+            placeholder: 'portlet-placeholder ui-state-highlight',
+            // 允许拖拽预留空白区域
+            forcePlaceholderSize: true,
+            // 多个列表之间的拖拽的dom元素
+            connectWith: '.sortContainer',
+            // 鼠标到区域则填充
+            tolerance: "pointer",
+            // 可以拖拽的项
+            items: '.ui-state-default',
+            // 填充动画
+            revert: 15,
+            // 拖拽结束函数
+            stop: (e, ui) => {
+                // 当前拽入的元素
+                let item = $(ui.item)
+                // 当前拽入元素的下标
+                let index = item.index()
+                let kid = ''
+                // xxxx 这里面可以操作数据更新
+            },
+            // 开始拖拽时的函数
+            start: (e, ui) => {
+                // 拖拽前的父级节点
+                dragBeforeParentNode = ui.item[0].parentNode
+                让placeholder和源高度一致
+                ui.helper.height(ui.item[0].clientHeight)
+                // xxxx  这里可以记录一些拖拽前的元素属性
+            },
+            // 处理两列滚动条问题
+            sort: function (event, ui) {
+                var scrollContainer = ui.placeholder[0].parentNode
+                // 设置拽入的列表的滚动位置
+                var overflowOffset = $(scrollContainer).offset()
+                if ((overflowOffset.top + scrollContainer.offsetHeight) - event.pageY <
+                    scrollingSensitivity) {
+                    scrollContainer.scrollTop = scrollContainer.scrollTop + scrollingSpeed
+                } else if (event.pageY - overflowOffset.top < scrollingSensitivity) {
+                    scrollContainer.scrollTop = scrollContainer.scrollTop - scrollingSpeed
+                }
+            }
+        }).disableSelection()
+    })
+</script>
+
+</html>
